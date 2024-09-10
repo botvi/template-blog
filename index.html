@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class", // Enable dark mode using class
+    };
+  </script>
+  <!-- Boxicons CDN for Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css">
+  <title>Navbar Example</title>
+</head>
+
+<body class="bg-white text-black dark:bg-black dark:text-white">
+  <!-- Navbar with Bottom Border -->
+  <nav
+    class="bg-white dark:bg-black px-6 py-4 flex items-center justify-between border-b border-gray-300 dark:border-gray-700 fixed top-0 left-0 w-full z-50">
+
+
+    <!-- Logo -->
+    <div class="text-2xl font-bold">pandekakode</div>
+
+    <!-- Hamburger Menu (Mobile) -->
+    <div class="md:hidden">
+      <button id="menuToggle" class="text-3xl">
+        <i class="bx bx-menu"></i>
+      </button>
+    </div>
+
+    <!-- Links (Desktop) -->
+    <div class="hidden md:flex space-x-6">
+      <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white">Home</a>
+      <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white">Series</a>
+      <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white">RILT</a>
+      <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white">Filament</a>
+      <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white">Articles</a>
+      <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white">Posts+</a>
+      <a href="#"
+        class="flex items-center space-x-2 text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+        <span>Buku</span>
+      </a>
+    </div>
+
+    <!-- Dark/Light Mode Icon Toggle in Bordered Button (Desktop) -->
+    <div class="hidden md:flex items-center space-x-4">
+      <!-- Moon/Sun Icon Button -->
+      <div id="themeToggle"
+        class="flex items-center justify-center w-10 h-10 border border-black dark:border-white rounded-full bg-white dark:bg-black cursor-pointer transition">
+        <!-- Moon Icon -->
+        <i id="moonIcon" class="bx bx-moon text-black dark:hidden"></i>
+        <!-- Sun Icon -->
+        <i id="sunIcon" class="bx bx-sun text-white hidden dark:block"></i>
+      </div>
+
+      <!-- Login/Register Buttons -->
+      <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white">Login</a>
+      <a href="#"
+        class="bg-white dark:bg-black text-black dark:text-white px-4 py-2 border border-black dark:border-white rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">Register</a>
+    </div>
+  </nav>
+
+  <!-- Sidebar Menu (Mobile) -->
+  <div
+    class="fixed inset-y-0 left-0 w-64 bg-white text-black dark:bg-black border border-gray-700 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 rounded-lg"
+    id="mobileMenu">
+    <div class="flex items-center justify-between px-4 pt-4 pb-2">
+      <a class="text-black dark:text-gray-300 text-2xl font-bold" href="#">pandekakode</a>
+      <button
+        class="text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white p-2 rounded-md"
+        id="mobileMenuClose">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+        </svg>
+      </button>
+    </div>
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <a class="text-black dark:text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium bg-gray-300 dark:bg-slate-900 dark:bg-opacity-90"
+        href="#"><i class="bx bx-home-alt"></i> Home</a>
+      <a class="text-black dark:text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+        href="#"><i class="bx bx-tv"></i> Series</a>
+      <a class="text-black dark:text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+        href="#"><i class="bx bx-film"></i> RILT</a>
+      <a class="text-black dark:text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+        href="#"><i class="bx bx-camera"></i> Filament</a>
+      <a class="text-black dark:text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+        href="#"><i class="bx bx-book"></i> Articles</a>
+      <a class="text-black dark:text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+        href="#"><i class="bx bx-bookmark"></i> Posts+</a>
+      <a class="text-black dark:text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+        href="#"><i class="bx bx-cart"></i> Kartel</a>
+      <div class="flex mt-2 space-x-2">
+        <a class="text-black dark:text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium border border-gray-600"
+          href="#">Login</a>
+        <a class="text-white dark:text-gray-300 bg-blue-600 hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium"
+          href="#">Register</a>
+      </div>
+    </div>
+    <!-- Dark/Light Mode Toggle (Mobile) -->
+    <div class="absolute bottom-4 left-4 flex items-center space-x-2">
+      <div id="themeToggleMobile"
+        class="flex items-center justify-center w-10 h-10 border border-black dark:border-white rounded-full bg-white dark:bg-black cursor-pointer transition">
+        <!-- Moon Icon -->
+        <i id="moonIconMobile" class="bx bx-moon text-black dark:hidden"></i>
+        <!-- Sun Icon -->
+        <i id="sunIconMobile" class="bx bx-sun text-white hidden dark:block"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content Section -->
+  <section class="py-8 px-6 md:px-12 mt-20">
+    <div class="container mx-auto">
+      <div class="flex flex-col md:flex-row items-start md:space-x-12 space-y-8 md:space-y-0">
+        <!-- Text Content -->
+        <div class="md:text-left w-full md:w-1/3 lg:w-1/2">
+          <h2 class="text-4xl font-bold mb-4 dark:text-white">Artikel Pembelajaran untuk Web Developer</h2>
+
+          <p class="text-lg text-gray-600 mb-8 dark:text-gray-400">
+            Tingkatkan keahlian Anda dengan artikel-artikel mendalam yang dirancang khusus untuk web developer. Temukan
+            berbagai topik penting
+            seperti Laravel, React, Next.js, Tailwind CSS, dan banyak lagi untuk memperluas pengetahuan dan keterampilan
+            Anda.
+          </p>
+
+          <div class="flex space-x-4">
+            <a href="#" class="inline-flex items-center justify-center text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 
+              hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 
+              dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg 
+              dark:shadow-green-800/80 font-medium rounded-lg text-sm px-6 py-3 text-center 
+              me-2 mb-2">
+              <i class='bx bx-news' style="font-size: 1.2rem; margin-right: 0.5rem;"></i>
+              Artikel
+            </a>
+          </div>
+        </div>
+
+        <!-- Separator (Optional) -->
+        <div class="hidden md:block border-l-2 border-gray-300 h-auto dark:border-gray-700"></div>
+
+        <!-- Sidebar Content -->
+        <aside
+          class="border border-gray-300 text-black p-6 rounded-lg w-full md:w-2/3 dark:border-gray-700 dark:text-white font-mono">
+          <div class="flex justify-between items-center">
+            <div class="flex space-x-2">
+              <div class="w-3 h-3 rounded-full bg-red-500 dark:bg-red-700"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500 dark:bg-yellow-500"></div>
+              <div class="w-3 h-3 rounded-full bg-green-500 dark:bg-green-500"></div>
+            </div>
+            <p class="text-sm">bash</p>
+          </div>
+          <div class="mt-4">
+            <p class="text-green-400">$ npm install pandekakode</p>
+            <p class="text-gray-800 dark:text-gray-300">+ pandekakode@1.0.0</p>
+            <p class="text-gray-800 dark:text-gray-300">added 1000+ Article, and audited 2 packages in 3s</p>
+            <p class="text-green-400">$</p>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- List Article Kategori Section -->
+  <section
+    class="py-8 px-6 md:px-12 bg-gray-200 dark:bg-gray-900 bg-[url('/img/pattern/lighttt.png')] dark:bg-[url('/img/pattern/darkkkk.png')]">
+    <div class="container mx-auto">
+      <!-- Horizontal Scroll Container -->
+      <div id="scrollContainer" class="scroll-container flex overflow-x-auto space-x-4 py-4">
+        <div
+          class="flex-shrink-0 w-full max-w-xs md:max-w-md border border-gray-300 dark:border-gray-700 text-black dark:text-white rounded-xl shadow-md overflow-hidden bg-white dark:bg-black">
+          <div class="flex justify-between items-center px-6 py-4">
+            <div class="flex space-x-4">
+              <div>
+                <img src="https://static-00.iconduck.com/assets.00/laravel-icon-1990x2048-xawylrh0.png" alt="Image"
+                  height="28" width="28">
+              </div>
+              <div>
+                <div class="text-lg font-bold dark:text-white">Manish Gole</div>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 py-4">
+            <div class="text-sm text-gray-800 dark:text-gray-200">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pellentesque id erat at blandit. Donec
+              ullamcorper turpis vitae dolor lacinia mollis. Donec at augue eget ipsum porttitor interdum.
+            </div>
+          </div>
+          <div
+            class="flex justify-between items-center space-x-4 pt-4 border-t border-gray-200 dark:border-gray-700 p-4">
+            <div class="flex items-center space-x-4">
+              <a href="your-link-here"
+                class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 inline-block">
+                Lihat Artikel
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Repeat the item block as needed -->
+        <div
+          class="flex-shrink-0 w-full max-w-xs md:max-w-md border border-gray-300 dark:border-gray-700 text-black dark:text-white rounded-xl shadow-md overflow-hidden bg-white dark:bg-black">
+          <div class="flex justify-between items-center px-6 py-4">
+            <div class="flex space-x-4">
+              <div>
+                <img src="https://static-00.iconduck.com/assets.00/laravel-icon-1990x2048-xawylrh0.png" alt="Image"
+                  height="28" width="28">
+
+              </div>
+              <div>
+                <div class="text-lg font-bold dark:text-white">Manish Gole</div>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 py-4">
+            <div class="text-sm text-gray-800 dark:text-gray-200">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pellentesque id erat at blandit. Donec
+              ullamcorper turpis vitae dolor lacinia mollis. Donec at augue eget ipsum porttitor interdum.
+            </div>
+          </div>
+          <div
+            class="flex justify-between items-center space-x-4 pt-4 border-t border-gray-200 dark:border-gray-700 p-4">
+            <div class="flex items-center space-x-4">
+              <a href="your-link-here"
+                class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 inline-block">
+                Lihat Artikel
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add more items as needed -->
+        <!-- Item 3 -->
+        <div
+          class="flex-shrink-0 w-full max-w-xs md:max-w-md border border-gray-300 dark:border-gray-700 text-black dark:text-white rounded-xl shadow-md overflow-hidden bg-white dark:bg-black">
+          <div class="flex justify-between items-center px-6 py-4">
+            <div class="flex space-x-4">
+              <div>
+                <img src="https://static-00.iconduck.com/assets.00/laravel-icon-1990x2048-xawylrh0.png" alt="Image"
+                  height="28" width="28">
+
+              </div>
+              <div>
+                <div class="text-lg font-bold dark:text-white">Manish Gole</div>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 py-4">
+            <div class="text-sm text-gray-800 dark:text-gray-200">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pellentesque id erat at blandit. Donec
+              ullamcorper turpis vitae dolor lacinia mollis. Donec at augue eget ipsum porttitor interdum.
+            </div>
+          </div>
+          <div
+            class="flex justify-between items-center space-x-4 pt-4 border-t border-gray-200 dark:border-gray-700 p-4">
+            <div class="flex items-center space-x-4">
+              <a href="your-link-here"
+                class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 inline-block">
+                Lihat Artikel
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Add more items as needed -->
+        <!-- Item 4 -->
+        <div
+          class="flex-shrink-0 w-full max-w-xs md:max-w-md border border-gray-300 dark:border-gray-700 text-black dark:text-white rounded-xl shadow-md overflow-hidden bg-white dark:bg-black">
+          <div class="flex justify-between items-center px-6 py-4">
+            <div class="flex space-x-4">
+              <div>
+                <img src="https://static-00.iconduck.com/assets.00/laravel-icon-1990x2048-xawylrh0.png" alt="Image"
+                  height="28" width="28">
+
+              </div>
+              <div>
+                <div class="text-lg font-bold dark:text-white">Manish Gole</div>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 py-4">
+            <div class="text-sm text-gray-800 dark:text-gray-200">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas pellentesque id erat at blandit. Donec
+              ullamcorper turpis vitae dolor lacinia mollis. Donec at augue eget ipsum porttitor interdum.
+            </div>
+          </div>
+          <div
+            class="flex justify-between items-center space-x-4 pt-4 border-t border-gray-200 dark:border-gray-700 p-4">
+            <div class="flex items-center space-x-4">
+              <a href="your-link-here"
+                class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 inline-block">
+                Lihat Artikel
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+
+
+  <footer class="">
+    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">pandekakode</span>
+            </a>
+            <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">About</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">Flowbite™</a>. All Rights Reserved.</span>
+    </div>
+</footer>
+
+
+  
+  
+  
+
+
+
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
