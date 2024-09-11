@@ -136,25 +136,40 @@
         </div>
 
         <!-- Dropdown filter for mobile mode -->
-        <div class="sm:hidden mb-10 w-full custom-select-container">
-          <div class="relative">
-            <select class="custom-select appearance-none block w-full bg-white dark:bg-black border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 pr-8 leading-tight focus:outline-none focus:border-black dark:focus:border-white">
-              <option value="#">Semua</option>
-              <option value="#">Laravel</option>
-              <option value="#">Inertia</option>
-              <option value="#">Livewire</option>
-              <option value="#">Filament</option>
-              <option value="#">Queues</option>
-              <option value="#">React</option>
-              <option value="#">Tailwind CSS</option>
-            </select>
-            <!-- Dropdown Arrow -->
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300">
-              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5.293 7.293L10 12l4.707-4.707-1.414-1.414L10 9.172l-3.293-3.293z"/></svg>
+        <div class="sm:hidden relative w-full custom-dropdown">
+          <button id="dropdownButton"
+            class="custom-select-button w-full bg-white dark:bg-black border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-left flex justify-between items-center">
+            <span id="dropdownSelected">Semua</span>
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M10.83 5a3.001 3.001 0 0 0-5.66 0H4a1 1 0 1 0 0 2h1.17a3.001 3.001 0 0 0 5.66 0H20a1 1 0 1 0 0-2h-9.17ZM4 11h9.17a3.001 3.001 0 0 1 5.66 0H20a1 1 0 1 1 0 2h-1.17a3.001 3.001 0 0 1-5.66 0H4a1 1 0 1 1 0-2Zm1.17 6H4a1 1 0 1 0 0 2h1.17a3.001 3.001 0 0 0 5.66 0H20a1 1 0 1 0 0-2h-9.17a3.001 3.001 0 0 0-5.66 0Z"/>
+            </svg>            
+          </button>
+          <div id="dropdownList"
+            class="hidden fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-black border-t border-gray-300 dark:border-gray-600 shadow-lg rounded-t-lg transition-transform transform translate-y-full">
+            <div class="flex justify-between items-center px-4 py-2 border-b border-gray-200 dark:border-gray-700">
+              <span class="font-semibold text-gray-700 dark:text-gray-300">Filter Kategori</span>
+              <button id="closeButton" class="text-gray-700 dark:text-gray-300">Close</button>
             </div>
+            <ul class="overflow-y-auto max-h-60">
+              <li class="dropdown-item px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer" href="#">Semua
+              </li>
+              <li class="dropdown-item px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer" href="url2">
+                Laravel</li>
+              <li class="dropdown-item px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer" href="url3">
+                Inertia</li>
+              <li class="dropdown-item px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer" href="url4">
+                Livewire</li>
+              <li class="dropdown-item px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer" href="url5">
+                Filament</li>
+              <li class="dropdown-item px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer" href="url6">
+                Queues</li>
+              <li class="dropdown-item px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer" href="url7">
+                React</li>
+              <li class="dropdown-item px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer" href="url8">
+                Tailwind CSS</li>
+            </ul>
           </div>
         </div>
-        
       </div>
     </div>
   </section>
@@ -163,60 +178,63 @@
 
 
   <!-- List Article Kategori Section -->
-  <section class="relative py-8 px-6 md:px-12 bg-white dark:bg-black mt-10">
+  <section class="relative  py-8 px-6 md:px-12 bg-white dark:bg-black mt-10">
     <!-- Particle effect container -->
     <div id="particles-js" class="absolute inset-0 z-0"></div>
 
     <!-- Latest Articles Section -->
-    <div class="relative z-10 container mx-auto">
-        <!-- Section Title and Description -->
-        <div class="mb-6">
-            <h3 class="text-2xl font-bold text-black dark:text-white mb-2">Terbaru</h3>
-            <span class="text-gray-700 dark:text-gray-300">Berikut adalah daftar artikel yang baru saja diterbitkan.</span>
-        </div>
+    <div class="relative z-0 container mx-auto">
+      <!-- Section Title and Description -->
+      <div class="mb-6">
+        <h3 class="text-2xl font-bold text-black dark:text-white mb-2">Terbaru</h3>
+        <span class="text-gray-700 dark:text-gray-300">Berikut adalah daftar artikel yang baru saja diterbitkan.</span>
+      </div>
 
-        <!-- Responsive grid: 1 column on mobile, 3 on desktop -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <!-- Card Template (Repeat this block for multiple cards) -->
-            <a href="your-link-1" class="block">
-                <div
-                    class="relative cursor-pointer overflow-hidden transition-transform duration-500 hover:translate-y-2 bg-neutral-50 dark:bg-black border border-black dark:border-white rounded-lg shadow-xl flex flex-col p-4">
-                    <i class='bx bx-code-block absolute top-2 left-2 text-2xl text-black dark:text-white'></i>
-                    <span class="absolute top-2 right-2 text-sm text-black dark:text-white px-2 py-1 font-mono">5.8k kata</span>
-                    <div class="mt-12">
-                        <span class="font-bold text-black dark:text-white">Card Title 1</span>
-                        <p class="line-clamp-3 text-gray-700 dark:text-gray-300 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-            </a>
+      <!-- Responsive grid: 1 column on mobile, 3 on desktop -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Card Template (Repeat this block for multiple cards) -->
+        <a href="your-link-1" class="block">
+          <div
+            class="relative cursor-pointer overflow-hidden transition-transform duration-500 hover:translate-y-2 bg-neutral-50 dark:bg-black border border-black dark:border-white rounded-lg shadow-xl flex flex-col p-4">
+            <i class='bx bx-code-block absolute top-2 left-2 text-2xl text-black dark:text-white'></i>
+            <span class="absolute top-2 right-2 text-sm text-black dark:text-white px-2 py-1 font-mono">5.8k kata</span>
+            <div class="mt-12">
+              <span class="font-bold text-black dark:text-white">Card Title 1</span>
+              <p class="line-clamp-3 text-gray-700 dark:text-gray-300 mt-2">Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+          </div>
+        </a>
 
-            <!-- Repeat this block for other cards -->
-            <a href="your-link-2" class="block">
-                <div
-                    class="relative cursor-pointer overflow-hidden transition-transform duration-500 hover:translate-y-2 bg-neutral-50 dark:bg-black border border-black dark:border-white rounded-lg shadow-xl flex flex-col p-4">
-                    <i class='bx bx-code-block absolute top-2 left-2 text-2xl text-black dark:text-white'></i>
-                    <span class="absolute top-2 right-2 text-sm text-black dark:text-white px-2 py-1 font-mono">5.8k kata</span>
-                    <div class="mt-12">
-                        <span class="font-bold text-black dark:text-white">Card Title 2</span>
-                        <p class="line-clamp-3 text-gray-700 dark:text-gray-300 mt-2">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                    </div>
-                </div>
-            </a>
+        <!-- Repeat this block for other cards -->
+        <a href="your-link-2" class="block">
+          <div
+            class="relative cursor-pointer overflow-hidden transition-transform duration-500 hover:translate-y-2 bg-neutral-50 dark:bg-black border border-black dark:border-white rounded-lg shadow-xl flex flex-col p-4">
+            <i class='bx bx-code-block absolute top-2 left-2 text-2xl text-black dark:text-white'></i>
+            <span class="absolute top-2 right-2 text-sm text-black dark:text-white px-2 py-1 font-mono">5.8k kata</span>
+            <div class="mt-12">
+              <span class="font-bold text-black dark:text-white">Card Title 2</span>
+              <p class="line-clamp-3 text-gray-700 dark:text-gray-300 mt-2">Duis aute irure dolor in reprehenderit in
+                voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+          </div>
+        </a>
 
-            <a href="your-link-3" class="block">
-                <div
-                    class="relative cursor-pointer overflow-hidden transition-transform duration-500 hover:translate-y-2 bg-neutral-50 dark:bg-black border border-black dark:border-white rounded-lg shadow-xl flex flex-col p-4">
-                    <i class='bx bx-code-block absolute top-2 left-2 text-2xl text-black dark:text-white'></i>
-                    <span class="absolute top-2 right-2 text-sm text-black dark:text-white px-2 py-1 font-mono">5.8k kata</span>
-                    <div class="mt-12">
-                        <span class="font-bold text-black dark:text-white">Card Title 3</span>
-                        <p class="line-clamp-3 text-gray-700 dark:text-gray-300 mt-2">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
+        <a href="your-link-3" class="block">
+          <div
+            class="relative cursor-pointer overflow-hidden transition-transform duration-500 hover:translate-y-2 bg-neutral-50 dark:bg-black border border-black dark:border-white rounded-lg shadow-xl flex flex-col p-4">
+            <i class='bx bx-code-block absolute top-2 left-2 text-2xl text-black dark:text-white'></i>
+            <span class="absolute top-2 right-2 text-sm text-black dark:text-white px-2 py-1 font-mono">5.8k kata</span>
+            <div class="mt-12">
+              <span class="font-bold text-black dark:text-white">Card Title 3</span>
+              <p class="line-clamp-3 text-gray-700 dark:text-gray-300 mt-2">Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
-</section>
+  </section>
 
 
 
@@ -254,16 +272,6 @@
           class="hover:underline">pandekakode</a>. All Rights Reserved.</span>
     </div>
   </footer>
-
-
-
-
-
-
-
-
-
-
   <!-- Include the Particles.js library -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 

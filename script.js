@@ -183,3 +183,54 @@ document.addEventListener("DOMContentLoaded", () => {
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
   
 });
+
+
+// filter
+document.getElementById('dropdownButton').addEventListener('click', function() {
+  const dropdownList = document.getElementById('dropdownList');
+  if (dropdownList.classList.contains('show')) {
+      dropdownList.classList.remove('show');
+      dropdownList.classList.add('hide');
+      setTimeout(() => dropdownList.classList.remove('hide'), 300);
+  } else {
+      dropdownList.classList.remove('hide');
+      dropdownList.classList.add('show');
+  }
+});
+
+document.getElementById('closeButton').addEventListener('click', function() {
+  const dropdownList = document.getElementById('dropdownList');
+  dropdownList.classList.remove('show');
+  dropdownList.classList.add('hide');
+  setTimeout(() => dropdownList.classList.remove('hide'), 300);
+});
+
+const dropdownItems = document.querySelectorAll('.dropdown-item');
+dropdownItems.forEach(item => {
+  item.addEventListener('click', function() {
+      // Remove 'active' class from all items
+      dropdownItems.forEach(el => el.classList.remove('active'));
+      
+      // Add 'active' class to the clicked item
+      this.classList.add('active');
+      
+      // Update the selected text
+      document.getElementById('dropdownSelected').textContent = this.textContent;
+      
+      // Perform navigation
+      const href = this.getAttribute('href');
+      if (href && href !== '#') {
+          window.location.href = href; // Navigate to the URL
+      }
+      
+      // Hide the dropdown
+      const dropdownList = document.getElementById('dropdownList');
+      dropdownList.classList.remove('show');
+      dropdownList.classList.add('hide');
+      setTimeout(() => dropdownList.classList.remove('hide'), 300);
+  });
+});
+
+
+
+// filter

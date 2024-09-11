@@ -18,68 +18,139 @@
   }
 
   /* filter */
-  /* Root variables for light and dark mode colors */
-:root {
-  --bg-color-light: white;
-  --bg-color-dark: #1a1a1a;
-  --border-color-light: #ccc;
-  --border-color-dark: #444;
-  --text-color-light: #333;
-  --text-color-dark: #ccc;
-  --arrow-color-light: #333;
-  --arrow-color-dark: #ccc;
-  --focus-border-light: black;
-  --focus-border-dark: white;
+  .custom-dropdown {
+    position: relative;
+    width: 100%;
+    z-index: 10;
 }
 
-/* Default light mode */
-.custom-select-container {
-  position: relative;
-  width: 100%;
+.custom-select-button {
+    appearance: none;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    color: #070707;
+    cursor: pointer;
+    z-index: 20;
 }
 
-.custom-select {
-  appearance: none;
-  background-color: var(--bg-color-light);
-  border: 1px solid var(--border-color-light);
-  border-radius: 8px;
-  padding: 12px;
-  padding-right: 40px; /* Space for the arrow */
-  font-size: 16px;
-  color: var(--text-color-light);
+.dark .custom-select-button {
+    background-color: #1a1a1a;
+    border-color: #444;
+    color: #ccc;
 }
 
-.custom-select:focus {
-  outline: none;
-  border-color: var(--focus-border-light);
+.custom-select-button:focus {
+    outline: none;
+    border-color: #000;
 }
 
-.custom-select-container svg {
-  pointer-events: none;
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
-  fill: var(--arrow-color-light);
+#dropdownList {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background-color: white;
+    border-top: 1px solid #ccc;
+    border-radius: 8px 8px 0 0;
+    z-index: 50;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(100%);
+}
+
+.dark #dropdownList {
+    background-color: #1a1a1a;
+    border-color: #444;
+}
+
+#dropdownList.show {
+    display: block;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+
+.dark .dropdown-item:hover {
+    background-color: #141414;
+}
+
+#closeButton {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 8px;
+}
+
+@keyframes slideIn {
+  from {
+      transform: translateY(100%);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+      transform: translateY(0);
+      opacity: 1;
+  }
+  to {
+      transform: translateY(100%);
+      opacity: 0;
+  }
+}
+
+#dropdownList {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background-color: white;
+  border-top: 1px solid #ccc;
+  border-radius: 8px 8px 0 0;
+  z-index: 50;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+#dropdownList.show {
+  display: block;
+  animation: slideIn 0.3s forwards;
+}
+
+#dropdownList.hide {
+  animation: slideOut 0.3s forwards;
+}
+/* Existing styles... */
+
+.dropdown-item.active {
+  background-color: #e0e0e0; /* Light gray background for the active item */
+  color: #000; /* Dark text color for better visibility */
 }
 
 /* Dark mode styles */
-.dark .custom-select {
-  background-color: var(--bg-color-dark);
-  border-color: var(--border-color-dark);
-  color: var(--text-color-dark);
+.dark .dropdown-item.active {
+  background-color: #333; /* Dark background for active item in dark mode */
+  color: #fff; /* Light text color for better visibility */
 }
-
-.dark .custom-select:focus {
-  border-color: var(--focus-border-dark);
-}
-
-.dark .custom-select-container svg {
-  fill: var(--arrow-color-dark);
-}
-
 
   
   /* filter */
