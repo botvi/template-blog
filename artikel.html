@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class", // Enable dark mode using class
+    };
+  </script>
+  <!-- Boxicons CDN for Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css">
+  <title>Navbar Example</title>
+</head>
+
+<body class="bg-white text-black dark:bg-black dark:text-white">
+  <!-- Navbar with Bottom Border -->
+  <nav
+    class="bg-white dark:bg-black px-6 py-4 flex items-center justify-between border-b border-gray-300 dark:border-gray-700 fixed top-0 left-0 w-full z-50">
+
+
+    <!-- Logo -->
+    <div class="text-2xl font-bold">pandekakode</div>
+
+    <!-- Hamburger Menu (Mobile) -->
+    <div class="md:hidden">
+      <button id="menuToggle" class="text-3xl">
+        <i class='bx bx-menu'></i>
+      </button>
+    </div>
+
+    <!-- Links (Desktop) -->
+    <div class="hidden md:flex space-x-6">
+      <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white">Home</a>
+      <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white">Series</a>
+      <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white">RILT</a>
+      <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white">Filament</a>
+      <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white">Articles</a>
+      <a href="#" class="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white">Posts+</a>
+      <a href="#"
+        class="flex items-center space-x-2 text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+        <span>Buku</span>
+      </a>
+    </div>
+
+    <!-- Dark/Light Mode Icon Toggle in Bordered Button (Desktop) -->
+    <div class="hidden md:flex items-center space-x-4">
+      <!-- Moon/Sun Icon Button -->
+      <div id="themeToggle"
+        class="flex items-center justify-center w-10 h-10 border border-black dark:border-white rounded-full bg-white dark:bg-black cursor-pointer transition">
+        <!-- Moon Icon -->
+        <i id="moonIcon" class="bx bx-moon text-black dark:hidden"></i>
+        <!-- Sun Icon -->
+        <i id="sunIcon" class="bx bx-sun text-white hidden dark:block"></i>
+      </div>
+
+      <!-- Login/Register Buttons -->
+      <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white">Login</a>
+      <a href="#"
+        class="bg-white dark:bg-black text-black dark:text-white px-4 py-2 border border-black dark:border-white rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">Register</a>
+    </div>
+  </nav>
+
+  <!-- Sidebar Menu (Mobile) -->
+  <div
+    class="fixed inset-y-0 left-0 w-64 bg-white text-black dark:bg-black border border-gray-700 transform -translate-x-full transition-transform duration-300 ease-in-out z-50 rounded-lg"
+    id="mobileMenu">
+    <div class="flex items-center justify-between px-4 pt-4 pb-2">
+      <a class="text-black dark:text-gray-300 text-2xl font-bold" href="#">pandekakode</a>
+      <button
+        class="text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white p-2 rounded-md"
+        id="mobileMenuClose">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+        </svg>
+      </button>
+    </div>
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <a class="text-black dark:text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium bg-gray-300 dark:bg-slate-900 dark:bg-opacity-90"
+        href="#"><i class="bx bx-home-alt"></i> Home</a>
+      <a class="text-black dark:text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+        href="#"><i class="bx bx-tv"></i> Series</a>
+      <a class="text-black dark:text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+        href="#"><i class="bx bx-film"></i> RILT</a>
+      <a class="text-black dark:text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+        href="#"><i class="bx bx-camera"></i> Filament</a>
+      <a class="text-black dark:text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+        href="#"><i class="bx bx-book"></i> Articles</a>
+      <a class="text-black dark:text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+        href="#"><i class="bx bx-bookmark"></i> Posts+</a>
+      <a class="text-black dark:text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+        href="#"><i class="bx bx-cart"></i> Kartel</a>
+      <div class="flex mt-2 space-x-2">
+        <a class="text-black dark:text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium border border-gray-600"
+          href="#">Login</a>
+        <a class="text-white dark:text-gray-300 bg-blue-600 hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium"
+          href="#">Register</a>
+      </div>
+    </div>
+    <!-- Dark/Light Mode Toggle (Mobile) -->
+    <div class="absolute bottom-4 left-4 flex items-center space-x-2">
+      <div id="themeToggleMobile"
+        class="flex items-center justify-center w-10 h-10 border border-black dark:border-white rounded-full bg-white dark:bg-black cursor-pointer transition">
+        <!-- Moon Icon -->
+        <i id="moonIconMobile" class="bx bx-moon text-black dark:hidden"></i>
+        <!-- Sun Icon -->
+        <i id="sunIconMobile" class="bx bx-sun text-white hidden dark:block"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content Section -->
+
+
+  <!-- Article Section -->
+  <section class="container mx-auto px-4 mt-10 sm:px-6 lg:px-8 py-8 content">
+    <!-- Full-width Header Section -->
+    <div class="text-dark dark:text-white py-6 mb-10 mt-10">
+      <div class="container mx-auto grid lg:grid-cols-5 gap-6 items-center">
+        <!-- Image container for desktop and centered for mobile -->
+        <div class="lg:col-span-1 flex justify-center lg:justify-center">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1969px-Laravel.svg.png"
+            alt="Image" height="auto" width="150px">
+        </div>
+
+        <!-- Content container -->
+        <div class="lg:col-span-4 text-center lg:text-left">
+          <p class="mt-2 text-md mb-3">Minggu, 03 September 2023</p>
+          <h1 class="text-5xl font-bold mb-3">Lorem ipsum dolor sit amet.</h1>
+          <p class="mt-2 text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, ut.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col lg:flex-row">
+      <!-- Articles Grid -->
+      <section class="lg:w-1/2 lg:pl-8 grid grid-cols-1 gap-6">
+        <article class="rounded-lg p-4">
+          <div class="flex justify-between items-center mb-2">
+            <h2 id="sejarah" class="text-2xl font-semibold">Intro</h2>
+          </div>
+          <p class="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
+            massa.
+            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,
+            ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,
+            fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae,
+            justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper
+            nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.
+            Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius
+            laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies
+            nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero,
+            sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.
+            Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis
+            ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec
+            sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</p>
+        </article>
+        <card class="py-8 px-6 md:px-12 bg-white dark:bg-black font-mono">
+          <div class="container">
+            <!-- Horizontal Scroll Container -->
+            <div id="scrollContainer" class="scroll-container flex overflow-x-auto space-x-4 py-4">
+              <div class="flex-shrink-0 w-full max-w-lg md:max-w-2xl border border-gray-300 dark:border-gray-700 text-black dark:text-white rounded-xl shadow-md overflow-hidden bg-white dark:bg-black">
+                <div class="flex justify-between items-center px-6 py-4">
+                  
+                  <!-- User Information -->
+                  <div class="flex space-x-4 items-center justify-between w-full">
+                    <div>
+                      <div class="text-lg font-bold dark:text-white">Yovi Ardiansyah</div>
+                      <div class="text-sm text-gray-800 dark:text-gray-200">
+                        Mari kita mulai hidup seolah-olah tidak ada seorang pun yang bisa menolong kita dalam keadaan apapun,
+                        sehingga ketika kita tertolong di saat-saat tertentu, itu menjadi nilai plus tersendiri.
+                      </div>
+                    </div>                   
+                  </div>
+                </div>
+        
+                <!-- Text above button -->
+                <div class="px-6 py-2">
+                  <div class="text-sm font-semibold text-gray-700 dark:text-gray-300">Support me</div>
+                </div>
+        
+                <!-- Saweria Button -->
+                <div class="flex justify-between items-center space-x-4 pt-2 px-6 pb-6">
+                  <div class="flex items-right space-x-4">
+                    <a href=""
+                      class="text-gray-900 bg-gray-100 border border-black hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 me-2 mb-2">
+                      <img src="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F01c81f8c-18c9-47d7-b7ad-c04058016626_225x225.png"
+                        alt="Saweria Logo" class="w-6 h-6 mr-2">
+                      <span class="text-base">Saweria</span>
+                    </a>
+                  </div>
+                </div>
+        
+              </div>
+            </div>
+          </div>
+        </card>
+        
+        
+        
+      </section>
+
+
+
+
+      <!-- Artikel terkait -->
+      <aside class="lg:w-1/2 mb-8 lg:mb-0">
+        <nav class="sticky top-32">
+          <div class="flex gap-2 mb-5"></div>
+          <div id="toc-menu" class="lg:block mt-4">
+            <h2 class="text-2xl font-bold mb-6">Artikel Terkait</h2>
+            <ul class="list-inside">
+              
+              <!-- Article 1 -->
+              <li class="mb-4 font-semibold">
+                <a href="#article1"
+                  class="fixed-width-item w-full text-gray-900 bg-white hover:bg-white border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-start dark:focus:ring-gray-600 dark:bg-black dark:border-gray-700 dark:text-white dark:hover:bg-gray-700">
+                  <!-- Image -->
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1969px-Laravel.svg.png" alt="Article 1" class="w-8 h-8 mr-3">
+                  <!-- Text -->
+                  <span class="text-left">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi, adipisci..</span>
+                </a>
+              </li>
+              
+              <!-- Article 2 -->
+              <li class="mb-4 font-semibold">
+                <a href="#article2"
+                  class="fixed-width-item w-full text-gray-900 bg-white hover:bg-white border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-start dark:focus:ring-gray-600 dark:bg-black dark:border-gray-700 dark:text-white dark:hover:bg-gray-700">
+                  <!-- Image -->
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1969px-Laravel.svg.png" alt="Article 2" class="w-8 h-8 mr-3">
+                  <!-- Text -->
+                  <span class="text-left">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga, commodi!</span>
+                </a>
+              </li>
+              
+              <!-- Article 3 -->
+              <li class="mb-4 font-semibold">
+                <a href="#article3"
+                  class="fixed-width-item w-full text-gray-900 bg-white hover:bg-white border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-start dark:focus:ring-gray-600 dark:bg-black dark:border-gray-700 dark:text-white dark:hover:bg-gray-700">
+                  <!-- Image -->
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1969px-Laravel.svg.png" alt="Article 3" class="w-8 h-8 mr-3">
+                  <!-- Text -->
+                  <span class="text-left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, tenetur?</span>
+                </a>
+              </li>
+              
+              <!-- Article 4 -->
+              <li class="mb-4 font-semibold">
+                <a href="#article4"
+                  class="fixed-width-item w-full text-gray-900 bg-white hover:bg-white border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex items-start dark:focus:ring-gray-600 dark:bg-black dark:border-gray-700 dark:text-white dark:hover:bg-gray-700">
+                  <!-- Image -->
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/1969px-Laravel.svg.png" alt="Article 4" class="w-8 h-8 mr-3">
+                  <!-- Text -->
+                  <span class="text-left">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, quidem.</span>
+                </a>
+              </li>
+              
+            </ul>
+          </div>
+        </nav>
+      </aside>
+      
+
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+
+
+  <footer class="">
+    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+      <div class="sm:flex sm:items-center sm:justify-between">
+        <a href="https://flowbite.com/" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">pandekakode</span>
+        </a>
+        <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+          <li>
+            <a href="#" class="hover:underline me-4 md:me-6">About</a>
+          </li>
+          <li>
+            <a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a>
+          </li>
+          <li>
+            <a href="#" class="hover:underline me-4 md:me-6">Licensing</a>
+          </li>
+          <li>
+            <a href="#" class="hover:underline">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+      <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/"
+          class="hover:underline">Flowbite™</a>. All Rights Reserved.</span>
+    </div>
+  </footer>
+
+
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
